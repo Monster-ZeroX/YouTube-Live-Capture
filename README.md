@@ -21,11 +21,11 @@ This Python script allows you to download YouTube live streams in the best avail
    cd YouTube-Live-Capture
 2. Install the dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
 ## Usage
 1. Run the script:
 ```bash
-python interactive_live_download.py
+python3 interactive_live_download.py
 ```
 2. Follow the pop-ups to:
 - Enter the YouTube live stream URL.
