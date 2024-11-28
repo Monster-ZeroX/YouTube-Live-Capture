@@ -1,6 +1,6 @@
 import os
 import subprocess
-from tkinter import Tk, filedialog, simpledialog
+from tkinter import Tk, filedialog, simpledialog, messagebox
 
 def download_and_merge_youtube_live_stream(youtube_live_url, cookies_file_path, output_folder, output_filename="live_stream_1080p60.mp4"):
     """
@@ -88,6 +88,19 @@ def get_user_inputs():
     output_folder = filedialog.askdirectory(title="Select Output Folder")
     if not output_folder:
         print("No output folder selected. Exiting.")
+        return None, None, None
+
+    # Confirmation popup
+    confirm_message = (
+        f"Please confirm your inputs:\n\n"
+        f"YouTube Live URL: {youtube_live_url}\n"
+        f"Cookies File Path: {cookies_file_path}\n"
+        f"Output Folder: {output_folder}\n\n"
+        f"Do you want to proceed?"
+    )
+    confirm = messagebox.askyesno("Confirm Inputs", confirm_message)
+    if not confirm:
+        print("User cancelled the operation.")
         return None, None, None
 
     return youtube_live_url, cookies_file_path, output_folder
